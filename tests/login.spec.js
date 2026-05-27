@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 import LoginPage from '../pages/LoginPage.js';
 import { users } from '../test-data/userData.js';
-import MenuPage from '../pages/MenuPage.js';
+import MenuPage from '../pages/menuPage.js';
 
 test.describe('Login Module', () => {
 
