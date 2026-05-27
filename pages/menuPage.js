@@ -1,6 +1,6 @@
 // pages/MenuPage.js
 
-export class MenuPage {
+export default class MenuPage {
   constructor(page) {
     this.page = page;
 
