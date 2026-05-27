@@ -1,4 +1,4 @@
-// pages/MenuPage.js
+
 
 export default class MenuPage {
   constructor(page) {
