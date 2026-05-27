@@ -3,7 +3,7 @@
 import { test, expect } from '@playwright/test';
 
 import { loginAsStandardUser } from '../utils/testSetup.js';
-import { MenuPage } from '../pages/MenuPage.js';
+import MenuPage from '../pages/MenuPage.js';
 
 test.describe('Logout Module', () => {
 
