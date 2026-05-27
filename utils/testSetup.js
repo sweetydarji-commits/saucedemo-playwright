@@ -6,6 +6,9 @@ export async function loginAsStandardUser(page) {
 
   await loginPage.gotoLoginPage();
 
+  console.log("USER:", process.env.SAUCE_USERNAME);
+  console.log("PASS:", process.env.PASSWORD);
+
   await loginPage.login(
     users.standard.username,
     users.standard.password

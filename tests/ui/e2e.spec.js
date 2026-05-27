@@ -1,10 +1,10 @@
 // tests/e2e.spec.js
 
 import { test } from '@playwright/test';
-import { loginAsStandardUser } from '../utils/testSetup.js';
-import InventoryPage from '../pages/InventoryPage.js';
-import { CartPage } from '../pages/CartPage.js';
-import { CheckoutPage } from '../pages/CheckoutPage.js';
+import { loginAsStandardUser } from '../../utils/testSetup.js';
+import InventoryPage from '../../pages/InventoryPage.js';
+import { CartPage } from '../../pages/CartPage.js';
+import { CheckoutPage } from '../../pages/CheckoutPage.js';
 
 test.describe('Complete E2E Flow', () => {
 

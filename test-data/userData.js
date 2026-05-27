@@ -1,6 +1,6 @@
 export const users = {
   standard: {
-    username: process.env.STANDARD_USER,
+    username: process.env.SAUCE_USERNAME,
     password: process.env.PASSWORD
   },
 

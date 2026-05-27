@@ -1,6 +1,6 @@
 import { test } from '@playwright/test';
-import { loginAsStandardUser } from '../utils/testSetup.js';
-import InventoryPage from '../pages/InventoryPage.js';
+import { loginAsStandardUser } from '../../utils/testSetup.js';
+import InventoryPage from '../../pages/InventoryPage.js';
 
 test.describe('Inventory Module', () => {
 
