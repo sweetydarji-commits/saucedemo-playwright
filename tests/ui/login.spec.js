@@ -1,7 +1,5 @@
 import { test } from '@playwright/test';
-import dotenv from 'dotenv';
-dotenv.config();
-import LoginPage from '../../pages/LoginPage.js';
+import { LoginPage } from '../../pages/LoginPage.js';
 import { users } from '../../test-data/userData.js';
 
 

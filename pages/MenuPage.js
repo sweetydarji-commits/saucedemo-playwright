@@ -1,6 +1,6 @@
 
 
-export default class MenuPage {
+export  class MenuPage {
   constructor(page) {
     this.page = page;
 

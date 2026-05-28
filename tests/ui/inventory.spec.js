@@ -1,39 +1,44 @@
 import { test } from '@playwright/test';
-import { loginAsStandardUser } from '../../utils/testSetup.js';
-import InventoryPage from '../../pages/InventoryPage.js';
+import { LoginPage } from '../../pages/LoginPage.js';
+import { InventoryPage } from '../../pages/InventoryPage.js';
+import { users } from '../../test-data/userData.js';
 
 test.describe('Inventory Module', () => {
 
-  let loginPage;
-  let inventoryPage;
-
   test.beforeEach(async ({ page }) => {
+    const loginPage = new LoginPage(page);
 
+    await loginPage.gotoLoginPage();
 
-    inventoryPage = new InventoryPage(page);
-     await loginAsStandardUser(page);
-    
-
-    
+    await loginPage.login(
+      users.standard.username,
+      users.standard.password
+    );
   });
 
-  test('@smoke Verify Inventory Page Title', async () => {
+  test('@smoke Verify Inventory Page Title', async ({ page }) => {
 
-    await inventoryPage.verifyInventoryPage();
+    const inventoryPage = new InventoryPage(page);
+
+    await inventoryPage.verifyInventoryPageLoaded();
   });
 
-  test('@regression Add Multiple Products', async () => {
+  test('@regression Add Multiple Products', async ({ page }) => {
 
-    await inventoryPage.addMultipleProducts(2);
+    const inventoryPage = new InventoryPage(page);
+
+    await inventoryPage.addMultipleProducts();
 
     await inventoryPage.verifyCartCount(2);
   });
 
-  test('@regression Verify Product Sorting Dropdown', async () => {
+  test('@regression Verify Product Sorting Dropdown', async ({ page }) => {
 
-    await inventoryPage.verifySortDropdownVisible();
+    const inventoryPage = new InventoryPage(page);
 
     await inventoryPage.sortProducts('za');
+
+    await inventoryPage.verifyProductsVisible();
   });
 
 });

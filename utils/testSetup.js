@@ -1,4 +1,4 @@
-import LoginPage from '../pages/LoginPage.js';
+import { LoginPage } from '../pages/LoginPage.js';
 import { users } from '../test-data/userData.js';
 
 export async function loginAsStandardUser(page) {

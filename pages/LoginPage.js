@@ -1,8 +1,6 @@
-// pages/LoginPage.js
-
 import { expect } from '@playwright/test';
 
-export default class LoginPage {
+export class LoginPage {
   constructor(page) {
     this.page = page;
 
@@ -13,25 +11,16 @@ export default class LoginPage {
   }
 
   async gotoLoginPage() {
-  await this.page.goto(process.env.BASE_URL);
-}
+    await this.page.goto('/');
+  }
 
   async login(username, password) {
     await this.usernameInput.fill(username);
     await this.passwordInput.fill(password);
-
-await this.loginButton.waitFor({ state: 'visible' });
-
-await this.loginButton.click({ force: true });
-
-await this.page.waitForLoadState('networkidle');
+    await this.loginButton.click();
   }
 
   async verifySuccessfulLogin() {
     await expect(this.page).toHaveURL(/inventory/);
-  }
-
-  async verifyErrorMessage(message) {
-    await expect(this.errorMessage).toContainText(message);
   }
 }

@@ -1,38 +1,47 @@
 import { expect } from '@playwright/test';
 
-export default class InventoryPage {
+export class InventoryPage {
   constructor(page) {
     this.page = page;
 
-    this.pageTitle = page.locator('.title');
-    this.addToCartButtons = page.locator('.btn_inventory');
-    this.shoppingCartBadge = page.locator('.shopping_cart_badge');
-    this.sortDropdown = page.locator('.product_sort_container');
+    this.title = page.locator('.title');
+
+    this.backpackAddBtn = page.locator('#add-to-cart-sauce-labs-backpack');
+    this.bikeLightAddBtn = page.locator('#add-to-cart-sauce-labs-bike-light');
+
+    this.cartBadge = page.locator('.shopping_cart_badge');
+
+    this.sortDropdown = page.locator('[data-test="product-sort-container"]');
+
+    this.inventoryItems = page.locator('.inventory_item_name');
   }
 
-  async verifyInventoryPage() {
-    await expect(this.pageTitle).toHaveText('Products');
+  async verifyInventoryPageLoaded() {
+    await expect(this.title).toHaveText('Products');
   }
 
-  async addFirstProductToCart() {
-    await this.addToCartButtons.first().click();
+  async addBackpackToCart() {
+    await this.backpackAddBtn.click();
   }
 
-  async addMultipleProducts(count) {
-    for (let i = 0; i < count; i++) {
-      await this.addToCartButtons.nth(i).click();
-    }
+  async addBikeLightToCart() {
+    await this.bikeLightAddBtn.click();
+  }
+
+  async addMultipleProducts() {
+    await this.addBackpackToCart();
+    await this.addBikeLightToCart();
   }
 
   async verifyCartCount(count) {
-    await expect(this.shoppingCartBadge).toHaveText(count.toString());
+    await expect(this.cartBadge).toHaveText(String(count));
   }
 
-  async sortProducts(optionValue) {
-    await this.sortDropdown.selectOption(optionValue);
+  async sortProducts(option) {
+    await this.sortDropdown.selectOption(option);
   }
 
-  async verifySortDropdownVisible() {
-    await expect(this.sortDropdown).toBeVisible();
+  async verifyProductsVisible() {
+    await expect(this.inventoryItems.first()).toBeVisible();
   }
 }
