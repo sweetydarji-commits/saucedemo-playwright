@@ -1,4 +1,4 @@
-class InventoryPage {
+export default class InventoryPage {
   constructor(page) {
     this.page = page;
 
@@ -17,7 +17,6 @@ class InventoryPage {
     await this.backpackAddBtn.click();
   }
 
-  // ADD THIS METHOD
   async addFirstProductToCart() {
     await this.backpackAddBtn.click();
   }
