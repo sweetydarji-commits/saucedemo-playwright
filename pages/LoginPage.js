@@ -15,10 +15,14 @@ export class LoginPage {
   }
 
   async login(username, password) {
-    await this.usernameInput.fill(username);
-    await this.passwordInput.fill(password);
-    await this.loginButton.click();
-  }
+  await this.usernameInput.fill(username);
+  await this.passwordInput.fill(password);
+
+  await Promise.all([
+    this.page.waitForURL('**/inventory.html'),
+    this.loginButton.click()
+  ]);
+}
 
   async verifySuccessfulLogin() {
     await expect(this.page).toHaveURL(/inventory/);
