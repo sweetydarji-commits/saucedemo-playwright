@@ -9,7 +9,6 @@ node_modules/
 .env
 .github/
 .gitignore
-
-      package-lock.json
-        package.json
-          playwright.config.js
+package-lock.json
+package.json
+playwright.config.js
