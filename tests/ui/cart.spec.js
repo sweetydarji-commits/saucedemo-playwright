@@ -1,6 +1,6 @@
 import { test } from '@playwright/test';
 import { loginAsStandardUser } from '../../utils/testSetup.js';
-import { InventoryPage } from '../../pages/ABC.js';
+import { InventoryPage } from '../../pages/InventoryPage.js';
 import { CartPage } from '../../pages/CartPage.js';
 
 test.describe('Cart Module', () => {
