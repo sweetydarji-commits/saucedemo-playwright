@@ -3,6 +3,7 @@ name: Playwright Tests
 on:
   push:
     branches: [main]
+
   pull_request:
 
 jobs:
@@ -10,9 +11,9 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-  BASE_URL: ${{ secrets.BASE_URL }}
-  SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME}}
-  PASSWORD: ${{ secrets.PASSWORD }}
+      BASE_URL: ${{ secrets.BASE_URL }}
+      SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
+      PASSWORD: ${{ secrets.PASSWORD }}
 
     steps:
       - name: Checkout repo
