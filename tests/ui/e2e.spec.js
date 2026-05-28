@@ -4,7 +4,7 @@ import { test } from '@playwright/test';
 import { loginAsStandardUser } from '../../utils/testSetup.js';
 
 import { LoginPage } from '../../pages/LoginPage.js';
-import { InventoryPage } from '../../pages/InventoryPage.js';
+import { InventoryPage } from '../../pages/ABC.js';
 import { CartPage } from '../../pages/CartPage.js';
 import { CheckoutPage } from '../../pages/CheckoutPage.js';
 
